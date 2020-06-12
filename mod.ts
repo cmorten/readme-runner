@@ -11,7 +11,6 @@ if (import.meta.main) {
   }
 
   const [url, _start, _end] = args;
-
   const start = parseInt(_start);
   const end = parseInt(_end);
 
