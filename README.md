@@ -2,7 +2,7 @@
 
 Run code snippets from a README (or any other file).
 
-## Usage
+## Usage
 
 As a minimum you need to provide the `--allow-net`, `--allow-read` and `--allow-write` permission flags.
 
