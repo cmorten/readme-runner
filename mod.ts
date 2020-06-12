@@ -53,7 +53,13 @@ if (import.meta.main) {
   }
 
   const script = lines.slice(start - 1, end).join("\n");
-  const tmpFilePath = await Deno.makeTempFile({ suffix: ".ts" })
+
+  console.log(script);
+
+  const tmpFilePath = await Deno.makeTempFile({ dir: "/tmp", suffix: ".ts" });
+
+  console.log(tmpFilePath);
+
   await Deno.writeTextFile(tmpFilePath, script);
   await import(tmpFilePath);
 }
