@@ -3,8 +3,6 @@ const exitWithUrlError = () => {
   Deno.exit(1);
 };
 
-console.log(import.meta.url);
-
 if (import.meta.main) {
   const { args } = Deno;
 
@@ -38,7 +36,6 @@ if (import.meta.main) {
 
   const response = await fetch(url);
   const page = await response.text();
-
   const lines = page.split("\n");
 
   if (start > lines.length) {
@@ -55,13 +52,7 @@ if (import.meta.main) {
   }
 
   const script = lines.slice(start - 1, end).join("\n");
-
-  console.log(script);
-
   const tmpFilePath = await Deno.makeTempFile({ suffix: ".ts" });
-
-  console.log(tmpFilePath);
-
   await Deno.writeTextFile(tmpFilePath, script);
   await import(`file://${tmpFilePath}`);
 }
