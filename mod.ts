@@ -60,6 +60,6 @@ if (import.meta.main) {
 
   console.log(tmpFilePath);
 
-  // await Deno.writeTextFile(tmpFilePath, script);
+  await Deno.writeTextFile(tmpFilePath, script);
   // await import(tmpFilePath);
 }
