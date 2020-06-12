@@ -3,6 +3,8 @@ const exitWithUrlError = () => {
   Deno.exit(1);
 };
 
+console.log(import.meta.url);
+
 if (import.meta.main) {
   const { args } = Deno;
 
@@ -61,5 +63,5 @@ if (import.meta.main) {
   console.log(tmpFilePath);
 
   await Deno.writeTextFile(tmpFilePath, script);
-  await import(tmpFilePath);
+  await import(`file://${tmpFilePath}`);
 }
